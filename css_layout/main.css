@@ -12,6 +12,11 @@ body, html {
   font-weight: bolder;
 }
 
+.description {
+  text-align: center;
+  color: #aaa;
+}
+
 /* Este codigo fue extraido de  https://stackoverflow.com/questions/36229356/whats-the-equivalent-of-the-container-bootstrap-class-in-purecss-io */
 .container {
   padding-right: 15px;

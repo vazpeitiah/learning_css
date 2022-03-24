@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flex box</title>
+  <link rel="stylesheet" href="../main.css">
+  <style>
+    .flex-container-e1 {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .flex-container-e2 {
+      display: flex;
+      flex-direction: column; /* Tambien puedes usar row-reverse y column-reverse */
+      justify-content: space-between;
+      height: 150px;
+    }
+
+    .flex-container-e3 {
+      display: flex;
+      width: 190px;
+      justify-content: center;
+    }
+
+    .flex-container-e4 {
+      display: flex;
+      width: 190px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .flex-container-e5 {
+      display: flex;
+      width: 190px;
+      justify-content: center;
+      /* flex-direction: row-reverse;
+      flex-wrap: wrap; */
+      flex-flow: row-reverse wrap;
+    }
+
+    .flex-container-e6 {
+      display: flex;
+      justify-content: center;
+    }
+
+    .flex-container-e6 .flex-item {
+      flex: 1;
+    }
+    
+    .flex-container-e6 .flex-item:nth-child(2n){
+      background-color: #F8EDE3;
+      color: #000;
+      flex: 4;
+    }
+
+    .flex {
+      background-color: #798777;
+      box-shadow: 5px 5px 10px #000;
+      border-radius: 10px;
+      padding: 1rem;
+      color: #fff;
+    }
+
+    .flex-item {
+      border: 2px solid #F8EDE3;
+      border-radius: 20px;
+      padding: 1rem;
+      text-transform: uppercase;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">Flex Box</h1>
+    <p> Información extraida de <a href="https://developer.mozilla.org/es/docs/Learn/CSS/CSS_layout/Flexbox#dimensionamiento_flexible_de_elementos_flexibles" target="__blank">Mozilla Developer Page</a></p>
+    <p>
+      Flex box es un método de diseño de página <b>unidimensional</b>
+      para compaginar elementos en filas o columnas. Los elementos de
+      contenido crecen o encogen para rellenar los espacios del
+      contenedor.
+    </p>
+
+    <p>
+      Para comenzar a utilizar caja flexibles vamos a utilizar la 
+      propiedad <b>display: flex;</b>, en el contenedor que queremos.
+    </p>
+
+    <div class="flex flex-container-e1">
+      <div class="flex-item">First article</div>
+      <div class="flex-item">Second article</div>
+      <div class="flex-item">Third article</div>
+    </div>
+
+    <p class="description">
+      Ejemplo 1: Elementos flexibles en fila.
+    </p>
+
+    <h2>El modelos flexible</h2>
+    <p>
+      Cuando los elementos se presentan como cajas flexibles, se 
+      distribuyen con respecto a dos ejes: 
+    </p>
+
+    <center>
+      <img src="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox/flex_terms.png" alt="flex-model">
+    </center>
+
+    <ul>
+      <li>
+        El <b>main axis</b> es el eje que corre en la dirección
+        en la que se colocan los elementos flexibles.
+      </li>
+      <li>
+        El <b>cross axis</b> es el eje que corre perpedicular a la
+        dirección en la que se colocan los elementos flexibles.
+      </li>
+      <li>
+        El elementos padre <b>flex container</b> es al que le
+        aplicamos la propiedad <b>display: flex;</b>.
+      </li>
+      <li>
+        Los elementos que se presentan como cajas flexibles dentro
+        de <b>flex container</b> se denominan <b>elementos flexibles</b>.
+      </li>
+    </ul>
+
+    <h2>Columnas y filas</h2>
+    <p>
+      Para establecer la dirección que tendran los elementos flexibles
+      se utiliza la propiedad <b>flex-direction</b>. Por defecto, esta
+      tiene un valor de <i>row</i>, pero podemos establecer el valor
+      <i>column</i> para que los elementos flexibles se muestren en una
+      columna.
+    </p>
+
+    <div class="flex flex-container-e2">
+      <div class="flex-item">Arriba</div>
+      <div class="flex-item">Abajo</div>
+    </div>
+    <p class="description">Ejemplo 2: Cambiando la dirección del main axis</p>
+
+    <h2>Desbordamiento y delimitar</h2>
+    <p>
+      Para evitar que los elementos flexibles se salgan de su contenedor, podemos 
+      utilizar la propiedad <b>flex-wrap</b>.
+    </p>
+
+    <center>
+      <div class="flex flex-container-e3">
+        <div class="flex-item">1</div>
+        <div class="flex-item">2</div>
+        <div class="flex-item">3</div>
+        <div class="flex-item">4</div>
+        <div class="flex-item">5</div>
+        <div class="flex-item">6</div>
+        <div class="flex-item">7</div>
+        <div class="flex-item">8</div>
+      </div>
+    </center>
+    <p class="description">Ejemplo 3: Los elementos flexibles se salen de su contenedor.</p>
+
+    <center>
+      <div class="flex flex-container-e4">
+        <div class="flex-item">1</div>
+        <div class="flex-item">2</div>
+        <div class="flex-item">3</div>
+        <div class="flex-item">4</div>
+        <div class="flex-item">5</div>
+        <div class="flex-item">6</div>
+        <div class="flex-item">7</div>
+        <div class="flex-item">8</div>
+      </div>
+    </center>
+    <p class="description">Ejemplo 4: Los elementos flexibles que se desbordan, se acomodan en una nueva fila.</p>
+
+    <h2>Propiedades abreviadas de flex</h2>
+    <p>
+      Podemos utilizar la propiedad <b>flex-flow</b> para abreviar las propiedades <b>flex-direction</b> y
+      <b>flex-wrap</b>.
+    </p>
+    <center>
+      <div class="flex flex-container-e5">
+        <div class="flex-item">1</div>
+        <div class="flex-item">2</div>
+        <div class="flex-item">3</div>
+        <div class="flex-item">4</div>
+        <div class="flex-item">5</div>
+        <div class="flex-item">6</div>
+        <div class="flex-item">7</div>
+        <div class="flex-item">8</div>
+      </div>
+    </center>
+    <p class="description">Ejemplo 5: Usando <b>flex-flow</b>.</p>
+    
+    <h2>Dimensionamiento flexible de elementos flexibles</h2>
+    
+    <p>
+      Podemos especificar la porcion de espacio que ocupara cada elemento flexible, dentro de su contenedor. Para
+      ello utilizamos la propiedad <b>flex</b>.
+    </p>
+
+    <div class="flex flex-container-e6">
+      <div class="flex-item">1</div>
+      <div class="flex-item">2</div>
+      <div class="flex-item">3</div>
+      <div class="flex-item">4</div>
+      <div class="flex-item">5</div>
+      <div class="flex-item">6</div>
+      <div class="flex-item">7</div>
+      <div class="flex-item">8</div>
+      <div class="flex-item">9</div>
+      <div class="flex-item">A</div>
+    </div>
+  </div>
+</body>
+</html>
