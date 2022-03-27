@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pruebas con animaciones</title>
+</head>
+<style>
+  body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .container {
+    height: 100%;
+    width: 100%;
+    background-color: #EFFFFD;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+  }
+
+  .circle {
+    background-color: #85F4FF;
+    border-radius: 50%;
+    padding: 1rem;
+    animation: burbuja 9s infinite linear;
+  }
+
+  @keyframes burbuja {
+    0%   { opacity: 1; bottom: 0%; align-self: flex-end; }
+    25%  { opacity: 0.75; bottom: 25%; align-self: center; }
+    50%  { opacity: 0.5; bottom: 50%; align-self: flex-start; }
+    75%  { opacity: 0.25; bottom: 75%; }
+    100% { opacity: 0; bottom: 100%; }
+  }
+</style>
+<body>
+
+  <div class="container">
+    <div class="circle">1</div>
+  </div>
+  
+</body>
+</html>
